@@ -16,9 +16,26 @@ class Movie{
 
     
     public function TimeToHours() {
-        $hours = floor($this->durata / 60);
-        $minutes = $this->durata % 60;
-        return "$hours ore e $minutes minuti";
+        if($this->durata % 60 !== 0){
+            if(floor($this->durata / 60) > 1){
+                $hours = floor($this->durata / 60);
+                $minutes = $this->durata % 60;
+                return "$hours ore e $minutes minuti";
+            }else{
+                $hours = floor($this->durata / 60);
+                $minutes = $this->durata % 60;
+                return "$hours ora e $minutes minuti";
+            }
+
+        }else{
+            if(floor($this->durata / 60) > 1){
+                $hours = floor($this->durata / 60);
+                return "$hours ore";
+            }else{
+                $hours = floor($this->durata / 60);
+                return "$hours ora";
+            }
+        }
     }
 
     public static function allFilms() {
